@@ -35,8 +35,6 @@ class UsuarioViewModel(private val repository: UsuarioRepository) : ViewModel() 
                 idade = idade.toIntOrNull() ?: 0
             )
             repository.insertUsuario(usuario)
-            // Não é necessário chamar carregarUsuarios() aqui
-            // pois o Flow já atualiza automaticamente
         }
     }
 
@@ -49,8 +47,6 @@ class UsuarioViewModel(private val repository: UsuarioRepository) : ViewModel() 
     fun deleteUsuario(usuario: Usuario) {
         viewModelScope.launch {
             repository.deleteUsuario(usuario)
-            // Não é necessário chamar carregarUsuarios() aqui
-            // pois o Flow já atualiza automaticamente
         }
     }
 }
